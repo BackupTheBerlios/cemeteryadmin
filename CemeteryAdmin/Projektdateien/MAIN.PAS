@@ -149,11 +149,16 @@ MainForm.Close
 end;
 
 procedure TMainForm.getSysInspExecute(Sender: TObject);
+var frmSysInspector: TfrmSysInspector;
+
 begin
-  if SysInspector = False Then begin
+  if SysInspIsShown = False Then begin
     TfrmSysInspector.Create(MainForm);
-    SysInspector := True
+    SysInspIsShown := True
   end
+  else begin
+    frmSysInspector.BringToFront
+  end;
 end;
 
 end.
