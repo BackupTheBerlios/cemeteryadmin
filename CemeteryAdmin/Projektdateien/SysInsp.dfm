@@ -8,7 +8,6 @@ object frmSysInspector: TfrmSysInspector
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'CA-Systerminspektor'
   Color = clBtnFace
-  Constraints.MaxHeight = 675
   Constraints.MaxWidth = 225
   Constraints.MinHeight = 430
   Constraints.MinWidth = 225

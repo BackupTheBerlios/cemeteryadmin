@@ -53,8 +53,19 @@ begin
 end;
 
 procedure TfrmSysInspector.FormCreate(Sender: TObject);
+var i, Hoehe: Integer;
 begin
-  self.Height := MainForm.ClientHeight;
+Hoehe := 1;
+  For i:=0 to MainForm.ComponentCount-1 do begin
+    If MainForm.Components[i] is TToolBar then begin
+      If (MainForm.Components[i] as TToolBar).Visible then
+        Inc(Hoehe,(Mainform.Components[i] as TToolBar).Height);
+      end
+    Else If Mainform.Components[i] is TStatusBar then begin
+        Inc(Hoehe,(Mainform.Components[i] as TStatusBar).Height);
+    end;
+  end;
+  self.Height := MainForm.ClientHeight - Hoehe - 3;
   self.Top := 0;
   self.Left := 0
 end;
