@@ -14,6 +14,7 @@ object MainForm: TMainForm
   Menu = MainMenu1
   OldCreateOrder = False
   Position = poDefault
+  Visible = True
   WindowState = wsMaximized
   WindowMenu = Window1
   PixelsPerInch = 96
@@ -189,6 +190,12 @@ object MainForm: TMainForm
         Action = EditPaste1
       end
     end
+    object Ansicht1: TMenuItem
+      Caption = 'Ansicht'
+      object Systeminspektor1: TMenuItem
+        Action = getSysInsp
+      end
+    end
     object Window1: TMenuItem
       Caption = '&Fenster'
       Hint = 'Fensterbezogene Anweisungen'
@@ -308,6 +315,10 @@ object MainForm: TMainForm
       Category = 'Datei'
       Caption = 'Beenden'
       OnExecute = SysBeendenExecute
+    end
+    object getSysInsp: TAction
+      Caption = 'Systeminspektor...'
+      OnExecute = getSysInspExecute
     end
   end
   object ImageList1: TImageList

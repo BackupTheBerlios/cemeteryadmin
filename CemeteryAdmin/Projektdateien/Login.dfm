@@ -59,6 +59,7 @@ object frmLogin: TfrmLogin
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
+    Text = 'nekropole'
   end
   object editPasswort: TLabeledEdit
     Left = 143
@@ -75,6 +76,7 @@ object frmLogin: TfrmLogin
     PasswordChar = '*'
     ShowHint = True
     TabOrder = 1
+    Text = 'nachtlicht'
   end
   object btnCancel: TButton
     Left = 232

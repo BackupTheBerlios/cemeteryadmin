@@ -7,7 +7,8 @@ uses
   about in 'about.pas' {AboutBox},
   CopyrightOpening in 'CopyrightOpening.pas' {frmCopyrightOpening},
   DatenNekropole1 in 'DatenNekropole1.pas' {datmNekropole1: TDataModule},
-  Login in 'Login.pas' {frmLogin};
+  Login in 'Login.pas' {frmLogin},
+  SysInsp in 'SysInsp.pas' {frmSysInspector};
 
 {$R *.RES}
 
@@ -18,6 +19,7 @@ begin
   Application.Initialize;
   Application.Title := 'Nekropole 2004';
   Application.CreateForm(TMainForm, MainForm);
+
   Application.CreateForm(TAboutBox, AboutBox);
   Application.CreateForm(TdatmNekropole1, datmNekropole1);
   Application.Run;
