@@ -73,13 +73,4 @@ object frmLogin: TfrmLogin
     Caption = 'Abbrechen'
     TabOrder = 3
   end
-  object ADOQuery1: TADOQuery
-    ConnectionString = 
-      'FILE NAME=C:\Programmierung\Friedhof\Entwicklung Friedhofsverwal' +
-      'tung\delphi 7\nekropole.udl'
-    CursorType = ctStatic
-    Parameters = <>
-    Left = 8
-    Top = 128
-  end
 end
