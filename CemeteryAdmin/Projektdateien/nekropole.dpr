@@ -20,6 +20,5 @@ begin
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TAboutBox, AboutBox);
   Application.CreateForm(TdatmNekropole1, datmNekropole1);
-  Application.CreateForm(TfrmLogin, frmLogin);
   Application.Run;
 end.

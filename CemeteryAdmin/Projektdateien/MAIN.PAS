@@ -26,7 +26,7 @@ type
     CopyItem: TMenuItem;
     PasteItem: TMenuItem;
     WindowMinimizeItem: TMenuItem;
-    StatusBar: TStatusBar;
+    StatusBarMain: TStatusBar;
     ActionList1: TActionList;
     EditCut1: TEditCut;
     EditCopy1: TEditCopy;
@@ -63,10 +63,19 @@ type
     Beenden1: TMenuItem;
     Datenkonvertierung1: TMenuItem;
     N2: TMenuItem;
+    N3: TMenuItem;
+    einloggenals1: TMenuItem;
+    ausloggen1: TMenuItem;
+    getLogin: TAction;
+    getLogout: TAction;
+    SysBeenden: TAction;
     procedure FileNew1Execute(Sender: TObject);
     procedure FileOpen1Execute(Sender: TObject);
     procedure HelpAbout1Execute(Sender: TObject);
     procedure FileExit1Execute(Sender: TObject);
+    procedure getLoginExecute(Sender: TObject);
+    procedure getLogoutExecute(Sender: TObject);
+    procedure SysBeendenExecute(Sender: TObject);
   private
     { Private-Deklarationen }
     procedure CreateMDIChild(const Name: string);
@@ -81,7 +90,7 @@ implementation
 
 {$R *.dfm}
 
-uses CHILDWIN, about;
+uses CHILDWIN, about, Login;
 
 procedure TMainForm.CreateMDIChild(const Name: string);
 var
@@ -112,6 +121,26 @@ end;
 procedure TMainForm.FileExit1Execute(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TMainForm.getLoginExecute(Sender: TObject);
+begin
+{ TODO 1 -oSebesta -cLogin : Prozedur zum schlieﬂen aller offenen Fenster }
+  if frmLogin = nil then begin
+    frmLogin := TfrmLogin.Create(Application);
+    frmLogin.Show
+  end;
+end;
+
+procedure TMainForm.getLogoutExecute(Sender: TObject);
+begin
+{ TODO 1 -oSebesta -cLogin : Prozedur zum schlieﬂen aller offenen Fenster }
+StatusBarMain.Panels[2].Text := 'kein Benutzer eingeloggt'
+end;
+
+procedure TMainForm.SysBeendenExecute(Sender: TObject);
+begin
+MainForm.Close
 end;
 
 end.

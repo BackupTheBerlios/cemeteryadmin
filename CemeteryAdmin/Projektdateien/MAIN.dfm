@@ -1,6 +1,6 @@
 object MainForm: TMainForm
-  Left = 202
-  Top = 192
+  Left = 204
+  Top = 109
   Width = 753
   Height = 592
   Caption = 'Nekropole 2003 V0.1'
@@ -18,14 +18,23 @@ object MainForm: TMainForm
   WindowMenu = Window1
   PixelsPerInch = 96
   TextHeight = 14
-  object StatusBar: TStatusBar
+  object StatusBarMain: TStatusBar
     Left = 0
     Top = 527
     Width = 745
     Height = 19
     AutoHint = True
-    Panels = <>
-    SimplePanel = True
+    Panels = <
+      item
+        Width = 300
+      end
+      item
+        Width = 100
+      end
+      item
+        Text = 'kein Benutzer eingeloggt'
+        Width = 50
+      end>
   end
   object ToolBar2: TToolBar
     Left = 0
@@ -149,13 +158,22 @@ object MainForm: TMainForm
           end
         end
       end
+      object N3: TMenuItem
+        Caption = '-'
+      end
+      object einloggenals1: TMenuItem
+        Action = getLogin
+      end
+      object ausloggen1: TMenuItem
+        Action = getLogout
+      end
       object FileExitItem: TMenuItem
         Caption = '-'
         Hint = 'Beenden|Programm beenden'
         OnClick = FileExit1Execute
       end
       object Beenden1: TMenuItem
-        Caption = '&Beenden'
+        Action = SysBeenden
       end
     end
     object Edit1: TMenuItem
@@ -275,6 +293,21 @@ object MainForm: TMainForm
         'Info|Anzeige von Programminformationen, Versionsnummer und Copyr' +
         'ight-Vermerk'
       OnExecute = HelpAbout1Execute
+    end
+    object getLogin: TAction
+      Category = 'Datei'
+      Caption = 'An- und Ummeldung ...'
+      OnExecute = getLoginExecute
+    end
+    object getLogout: TAction
+      Category = 'Datei'
+      Caption = 'Abmeldung'
+      OnExecute = getLogoutExecute
+    end
+    object SysBeenden: TAction
+      Category = 'Datei'
+      Caption = 'Beenden'
+      OnExecute = SysBeendenExecute
     end
   end
   object ImageList1: TImageList
