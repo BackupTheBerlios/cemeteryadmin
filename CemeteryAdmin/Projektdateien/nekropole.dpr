@@ -8,7 +8,8 @@ uses
   CopyrightOpening in 'CopyrightOpening.pas' {frmCopyrightOpening},
   DatenNekropole1 in 'DatenNekropole1.pas' {datmNekropole1: TDataModule},
   Login in 'Login.pas' {frmLogin},
-  SysInsp in 'SysInsp.pas' {frmSysInspector};
+  SysInsp in 'SysInsp.pas' {frmSysInspector},
+  userAdmin in 'userAdmin.pas' {frmUserAdmin};
 
 {$R *.RES}
 
@@ -19,8 +20,8 @@ begin
   Application.Initialize;
   Application.Title := 'Nekropole 2004';
   Application.CreateForm(TMainForm, MainForm);
-
   Application.CreateForm(TAboutBox, AboutBox);
   Application.CreateForm(TdatmNekropole1, datmNekropole1);
+  Application.CreateForm(TfrmUserAdmin, frmUserAdmin);
   Application.Run;
 end.
