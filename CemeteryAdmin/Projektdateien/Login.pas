@@ -37,13 +37,16 @@ var button: Integer; Loginname: String;
 begin
   with datmNekropole1.ADOQuery_userlogin do begin
     Close;
-    SQL.Text := 'select nvaShortName, nvaPassword from tab_user where nvaShortName = :ShortName';
+    SQL.Text := 'select nvaShortName, nvaPassword from tab_user ';
+    SQL.Text := SQL.Text + 'where nvaShortName = :ShortName';
     Parameters.ParamValues['ShortName'] := editBenutzername.text;
     Open
   end;
-  if datmNekropole1.ADOQuery_userlogin.FieldValues['nvaShortName'] = self.editBenutzername.Text Then begin
+  if datmNekropole1.ADOQuery_userlogin.FieldValues['nvaShortName']
+    = self.editBenutzername.Text Then begin
     Loginname := datmNekropole1.ADOQuery_userlogin.FieldValues['nvaShortName'];
-    if datmNekropole1.ADOQuery_userlogin.FieldValues['nvaPassword'] = self.editPasswort.Text Then begin
+    if datmNekropole1.ADOQuery_userlogin.FieldValues['nvaPassword']
+        = self.editPasswort.Text Then begin
       if frmLogin <> nil then begin
         frmLogin.Release;
         frmLogin := nil
@@ -52,7 +55,8 @@ begin
     end
     else begin
       with frmLogin do begin
-        button := Application.MessageBox(PChar('Benutzername oder Passwort fehlerhaft!'), 'Meldung', 17);
+        button := Application.MessageBox
+        (PChar('Benutzername oder Passwort fehlerhaft!'), 'Meldung', 17);
         editBenutzername.Text := '';
         editPasswort.Text := '';
         editBenutzername.SetFocus
@@ -60,8 +64,9 @@ begin
     end;
   end
   else begin
-    button := Application.MessageBox(PChar('Benutzername oder Passwort fehlerhaft!'), 'Meldung', 17);
-    if button = 1 then begin
+    button := Application.MessageBox
+    (PChar('Benutzername oder Passwort fehlerhaft!'), 'Meldung', 17);
+    if button = 2 then begin
       if frmLogin <> nil then begin
         frmLogin.Release;
         frmLogin := nil
